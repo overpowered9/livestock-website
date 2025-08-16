@@ -316,7 +316,7 @@ export default function HomePage() {
               <div className="group relative">
                 <div className="w-24 h-24 bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl border-2 border-primary/20 flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                   <img
-                    src="/logos/logo-goat-improvement.png"
+                    src="/logos/Logo-Goat-Improvement.png"
                     alt="Awais Livestock - Goat Improvement"
                     className="w-16 h-16 object-contain filter brightness-110"
                   />
