@@ -435,7 +435,7 @@ export default function HomePage() {
                   />
                 </div>
                 <h3 className="text-xl font-bold leading-tight tracking-[-0.015em] text-foreground mb-4">
-                  Awais Livestock
+                  Awais Danish Livestock
                 </h3>
                 <p className="text-lg font-semibold text-emerald-600 mb-3">Breeding & Development Specialists</p>
                 <p className="text-sm font-normal leading-relaxed text-muted-foreground mb-6">

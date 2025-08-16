@@ -41,9 +41,7 @@ export function Navigation() {
                 Contact
               </Link>
             </div>
-            <Button asChild variant="outline" size="sm" className="min-w-[84px] max-w-[480px] h-10 px-4 bg-primary text-primary-foreground text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
-              <Link href="/admin">Admin</Link>
-            </Button>
+            
           </div>
 
           {/* Mobile nav */}
