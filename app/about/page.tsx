@@ -9,7 +9,7 @@ export default function AboutPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="px-10 py-5">
+      <section className="px-4 sm:px-6 lg:px-8 py-5">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-[32px] font-bold leading-tight tracking-[-0.015em] text-foreground mb-3">
             About <span className="text-primary">D.A.D Private Limited</span>
@@ -22,7 +22,7 @@ export default function AboutPage() {
       </section>
 
       {/* Company Overview */}
-      <section className="px-10 py-5">
+      <section className="px-4 sm:px-6 lg:px-8 py-5">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -58,7 +58,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission, Vision, Values */}
-      <section className="px-10 py-5">
+      <section className="px-4 sm:px-6 lg:px-8 py-5">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-[22px] font-bold leading-tight tracking-[-0.015em] text-foreground mb-6">Our Foundation</h2>
@@ -114,7 +114,7 @@ export default function AboutPage() {
       </section>
 
       {/* What We Offer */}
-      <section className="px-10 py-5">
+      <section className="px-4 sm:px-6 lg:px-8 py-5">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-[22px] font-bold leading-tight tracking-[-0.015em] text-foreground mb-6">What We Offer</h2>
@@ -177,7 +177,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team Section */}
-      <section className="px-10 py-5">
+      <section className="px-4 sm:px-6 lg:px-8 py-5">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-[22px] font-bold leading-tight tracking-[-0.015em] text-foreground mb-6">Our Leadership</h2>

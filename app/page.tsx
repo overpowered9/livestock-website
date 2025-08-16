@@ -10,10 +10,13 @@ export default function HomePage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative min-h-[480px] flex items-center justify-center bg-cover bg-center bg-no-repeat rounded-lg mx-10 my-5"
+      <section
+        className="relative min-h-[360px] sm:min-h-[480px] flex items-center justify-center bg-cover bg-center bg-no-repeat rounded-lg mx-4 sm:mx-6 lg:mx-8 my-4 sm:my-6"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("/boer-goat.png")`
-        }}>
+          backgroundImage:
+            `linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("/boer-goat.png")`,
+        }}
+      >
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em] mb-6">
             Premium Livestock Excellence
@@ -38,7 +41,7 @@ export default function HomePage() {
       </section>
 
       {/* Our Vision Section - Interactive Component */}
-      <section className="px-10 py-16">
+      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-[32px] font-bold leading-tight tracking-[-0.015em] text-foreground mb-6">
@@ -161,7 +164,7 @@ export default function HomePage() {
       </section>
 
       {/* CEO Message Section */}
-      <section className="px-10 py-16">
+      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-[32px] font-bold leading-tight tracking-[-0.015em] text-foreground mb-6">Message from Our CEO</h2>
@@ -255,11 +258,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      
-        
-          
       {/* Strategic Partnership Section */}
-      <section className="px-10 py-16 bg-gradient-to-b from-background to-muted/30">
+      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 bg-gradient-to-b from-background to-muted/30">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-[32px] font-bold leading-tight tracking-[-0.015em] text-foreground mb-6">
@@ -548,13 +548,10 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-          
-
-          
 
       {/* Footer */}
       <footer className="bg-foreground text-white py-12 mt-10">
-        <div className="max-w-6xl mx-auto px-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="md:col-span-2">
               <h3 className="text-2xl font-bold leading-tight tracking-[-0.015em] mb-4">D.A.D Private Limited</h3>

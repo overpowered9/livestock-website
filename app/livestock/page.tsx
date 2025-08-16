@@ -16,11 +16,13 @@ export default function LivestockPage() {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      <div className="px-40 flex flex-1 justify-center py-5">
-        <div className="flex flex-col max-w-[960px] flex-1">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+        <div className="flex flex-col w-full">
           {/* Header */}
           <div className="flex flex-wrap justify-between gap-3 p-4">
-            <h1 className="text-[32px] font-bold leading-tight tracking-[-0.015em] text-foreground min-w-72">Our Livestock & Products</h1>
+            <h1 className="text-2xl md:text-[32px] font-bold leading-tight tracking-[-0.015em] text-foreground">
+              Our Livestock & Products
+            </h1>
           </div>
           <p className="text-base font-normal leading-normal text-foreground pb-3 pt-1 px-4">
             Discover our premium collection of livestock and agricultural products, carefully selected and maintained to
@@ -29,7 +31,7 @@ export default function LivestockPage() {
 
           {/* Product Categories */}
           <Tabs defaultValue="goats" className="w-full">
-            <TabsList className="grid w-full grid-cols-4 mb-8">
+            <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 mb-8">
               <TabsTrigger value="goats" className="text-sm font-medium">
                 Goats ({goats.length})
               </TabsTrigger>
@@ -77,7 +79,7 @@ export default function LivestockPage() {
                       </p>
                       <div className="flex items-center justify-between mt-2">
                         <span className="text-base font-semibold text-primary">{product.price}</span>
-                        <Button asChild size="sm" className="min-w-[84px] max-w-[480px] h-10 px-4 bg-primary text-primary-foreground text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
+                        <Button asChild size="sm" className="min-w-[84px] h-10 px-4">
                           <Link href={`/livestock/${product.id}`}>View Details</Link>
                         </Button>
                       </div>
@@ -120,7 +122,7 @@ export default function LivestockPage() {
                       </p>
                       <div className="flex items-center justify-between mt-2">
                         <span className="text-base font-semibold text-primary">{product.price}</span>
-                        <Button asChild size="sm" className="min-w-[84px] max-w-[480px] h-10 px-4 bg-primary text-primary-foreground text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
+                        <Button asChild size="sm" className="min-w-[84px] h-10 px-4">
                           <Link href={`/livestock/${product.id}`}>View Details</Link>
                         </Button>
                       </div>
@@ -163,7 +165,7 @@ export default function LivestockPage() {
                       </p>
                       <div className="flex items-center justify-between mt-2">
                         <span className="text-base font-semibold text-primary">{product.price}</span>
-                        <Button asChild size="sm" className="min-w-[84px] max-w-[480px] h-10 px-4 bg-primary text-primary-foreground text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
+                        <Button asChild size="sm" className="min-w-[84px] h-10 px-4">
                           <Link href={`/livestock/${product.id}`}>View Details</Link>
                         </Button>
                       </div>
@@ -206,7 +208,7 @@ export default function LivestockPage() {
                       </p>
                       <div className="flex items-center justify-between mt-2">
                         <span className="text-base font-semibold text-primary">{product.price}</span>
-                        <Button asChild size="sm" className="min-w-[84px] max-w-[480px] h-10 px-4 bg-primary text-primary-foreground text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
+                        <Button asChild size="sm" className="min-w-[84px] h-10 px-4">
                           <Link href={`/livestock/${product.id}`}>View Details</Link>
                         </Button>
                       </div>
