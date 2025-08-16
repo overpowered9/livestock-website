@@ -2,15 +2,17 @@ import { Navigation } from "@/components/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { products } from "@/lib/products"
 import Link from "next/link"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { getProductsByType } from "@/lib/db-products"
 
-export default function LivestockPage() {
-  const goats = products.filter((p) => p.type === "goat")
-  const cows = products.filter((p) => p.type === "cow")
-  const vegetables = products.filter((p) => p.type === "vegetable")
-  const honey = products.filter((p) => p.type === "honey")
+export default async function LivestockPage() {
+  const [goats, cows, vegetables, honey] = await Promise.all([
+    getProductsByType("goat"),
+    getProductsByType("cow"),
+    getProductsByType("vegetable"),
+    getProductsByType("honey"),
+  ])
 
   return (
     <div className="min-h-screen bg-background">

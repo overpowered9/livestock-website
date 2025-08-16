@@ -1,15 +1,4 @@
-export interface Product {
-  id: string
-  name: string
-  type: "goat" | "cow" | "vegetable" | "honey"
-  image: string
-  description: string
-  breed?: string
-  origin?: string
-  careInstructions?: string
-  price?: string
-  availability: "available" | "out-of-stock" | "seasonal"
-}
+import type { Product } from "./types"
 
 export const products: Product[] = [
   // Goats
@@ -149,10 +138,4 @@ export const products: Product[] = [
   },
 ]
 
-export function getProductsByType(type: Product["type"]) {
-  return products.filter((product) => product.type === type)
-}
-
-export function getProductById(id: string) {
-  return products.find((product) => product.id === id)
-}
+// Note: The in-memory helpers were removed. Use lib/db-products.ts to access data from MongoDB.

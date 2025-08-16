@@ -10,22 +10,18 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
-import { getProductById } from "@/lib/products"
 import { sendProductInquiry } from "@/lib/email"
 import Link from "next/link"
-import { notFound } from "next/navigation"
 import { ArrowLeft, Mail, MapPin, Info, DollarSign, Loader2 } from "lucide-react"
 import { useState } from "react"
-import { products } from "@/lib/products"
+import type { Product } from "@/lib/types"
 
 interface ProductPageProps {
-  params: {
-    id: string
-  }
+  product: Product
+  related: Product[]
 }
 
-export default function ProductDetailPageClient({ params }: ProductPageProps) {
-  const product = getProductById(params.id)
+export default function ProductDetailPageClient({ product, related }: ProductPageProps) {
   const { toast } = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({
@@ -36,10 +32,6 @@ export default function ProductDetailPageClient({ params }: ProductPageProps) {
     quantity: "",
     message: `I am interested in ${product?.name}. Please provide more information about availability, pricing, and delivery options.`,
   })
-
-  if (!product) {
-    notFound()
-  }
 
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }))
@@ -65,7 +57,6 @@ export default function ProductDetailPageClient({ params }: ProductPageProps) {
           title: "Inquiry Sent!",
           description: result.message,
         })
-        // Reset form
         setFormData({
           name: "",
           email: "",
@@ -75,18 +66,10 @@ export default function ProductDetailPageClient({ params }: ProductPageProps) {
           message: `I am interested in ${product.name}. Please provide more information about availability, pricing, and delivery options.`,
         })
       } else {
-        toast({
-          title: "Error",
-          description: result.message,
-          variant: "destructive",
-        })
+        toast({ title: "Error", description: result.message, variant: "destructive" })
       }
     } catch (error) {
-      toast({
-        title: "Error",
-        description: "Something went wrong. Please try again.",
-        variant: "destructive",
-      })
+      toast({ title: "Error", description: "Something went wrong. Please try again.", variant: "destructive" })
     } finally {
       setIsSubmitting(false)
     }
@@ -111,11 +94,7 @@ export default function ProductDetailPageClient({ params }: ProductPageProps) {
           {/* Product Image */}
           <div className="space-y-4">
             <div className="aspect-square relative overflow-hidden rounded-lg bg-card">
-              <img
-                src={product.image || "/placeholder.svg"}
-                alt={product.name}
-                className="w-full h-full object-cover"
-              />
+              <img src={product.image || "/placeholder.svg"} alt={product.name} className="w-full h-full object-cover" />
               <Badge
                 className={`absolute top-4 right-4 ${
                   product.availability === "available"
@@ -197,77 +176,40 @@ export default function ProductDetailPageClient({ params }: ProductPageProps) {
                 <Mail className="w-6 h-6 text-primary" />
                 Product Inquiry
               </CardTitle>
-              <p className="text-muted-foreground">
-                Interested in {product.name}? Send us your inquiry and we'll get back to you soon.
-              </p>
+              <p className="text-muted-foreground">Interested in {product.name}? Send us your inquiry and we'll get back to you soon.</p>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">Full Name *</Label>
-                    <Input
-                      id="name"
-                      value={formData.name}
-                      onChange={(e) => handleInputChange("name", e.target.value)}
-                      required
-                      placeholder="Enter your full name"
-                    />
+                    <Input id="name" value={formData.name} onChange={(e) => handleInputChange("name", e.target.value)} required placeholder="Enter your full name" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">Email Address *</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => handleInputChange("email", e.target.value)}
-                      required
-                      placeholder="Enter your email"
-                    />
+                    <Input id="email" type="email" value={formData.email} onChange={(e) => handleInputChange("email", e.target.value)} required placeholder="Enter your email" />
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="phone">Phone Number</Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) => handleInputChange("phone", e.target.value)}
-                      placeholder="Enter your phone number"
-                    />
+                    <Input id="phone" type="tel" value={formData.phone} onChange={(e) => handleInputChange("phone", e.target.value)} placeholder="Enter your phone number" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="location">Location</Label>
-                    <Input
-                      id="location"
-                      value={formData.location}
-                      onChange={(e) => handleInputChange("location", e.target.value)}
-                      placeholder="City, Province"
-                    />
+                    <Input id="location" value={formData.location} onChange={(e) => handleInputChange("location", e.target.value)} placeholder="City, Province" />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="quantity">Quantity Interested</Label>
-                  <Input
-                    id="quantity"
-                    value={formData.quantity}
-                    onChange={(e) => handleInputChange("quantity", e.target.value)}
-                    placeholder="e.g., 2 animals, 10 kg, etc."
-                  />
+                  <Input id="quantity" value={formData.quantity} onChange={(e) => handleInputChange("quantity", e.target.value)} placeholder="e.g., 2 animals, 10 kg, etc." />
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="message">Message *</Label>
-                  <Textarea
-                    id="message"
-                    value={formData.message}
-                    onChange={(e) => handleInputChange("message", e.target.value)}
-                    required
-                    rows={5}
-                  />
+                  <Textarea id="message" value={formData.message} onChange={(e) => handleInputChange("message", e.target.value)} required rows={5} />
                 </div>
 
                 <div className="bg-muted p-4 rounded-lg">
@@ -308,9 +250,7 @@ export default function ProductDetailPageClient({ params }: ProductPageProps) {
                   </Button>
                 </div>
 
-                <p className="text-xs text-muted-foreground text-center">
-                  By submitting this form, you agree to be contacted by D.A.D Private Limited regarding your inquiry.
-                </p>
+                <p className="text-xs text-muted-foreground text-center">By submitting this form, you agree to be contacted by D.A.D Private Limited regarding your inquiry.</p>
               </form>
             </CardContent>
           </Card>
@@ -319,42 +259,28 @@ export default function ProductDetailPageClient({ params }: ProductPageProps) {
         {/* Related Products */}
         <div className="mt-16">
           <h2 className="text-3xl font-serif font-bold text-center mb-8">
-            More{" "}
-            {product.type === "goat"
-              ? "Goats"
-              : product.type === "cow"
-                ? "Cows"
-                : product.type === "vegetable"
-                  ? "Vegetables"
-                  : "Honey Products"}
+            More {product.type === "goat" ? "Goats" : product.type === "cow" ? "Cows" : product.type === "vegetable" ? "Vegetables" : "Honey Products"}
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
-            {products
-              .filter((p) => p.type === product.type && p.id !== product.id)
-              .slice(0, 3)
-              .map((relatedProduct) => (
-                <Card key={relatedProduct.id} className="hover:shadow-lg transition-shadow">
-                  <div className="aspect-video relative overflow-hidden rounded-t-lg">
-                    <img
-                      src={relatedProduct.image || "/placeholder.svg"}
-                      alt={relatedProduct.name}
-                      className="w-full h-full object-cover"
-                    />
+            {related.map((relatedProduct) => (
+              <Card key={relatedProduct.id} className="hover:shadow-lg transition-shadow">
+                <div className="aspect-video relative overflow-hidden rounded-t-lg">
+                  <img src={relatedProduct.image || "/placeholder.svg"} alt={relatedProduct.name} className="w-full h-full object-cover" />
+                </div>
+                <CardHeader>
+                  <CardTitle className="text-lg font-serif">{relatedProduct.name}</CardTitle>
+                  <p className="text-sm text-muted-foreground line-clamp-2">{relatedProduct.description}</p>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center justify-between">
+                    <span className="text-primary font-semibold">{relatedProduct.price}</span>
+                    <Button asChild size="sm" variant="outline">
+                      <Link href={`/livestock/${relatedProduct.id}`}>View Details</Link>
+                    </Button>
                   </div>
-                  <CardHeader>
-                    <CardTitle className="text-lg font-serif">{relatedProduct.name}</CardTitle>
-                    <p className="text-sm text-muted-foreground line-clamp-2">{relatedProduct.description}</p>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="flex items-center justify-between">
-                      <span className="text-primary font-semibold">{relatedProduct.price}</span>
-                      <Button asChild size="sm" variant="outline">
-                        <Link href={`/livestock/${relatedProduct.id}`}>View Details</Link>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </div>
