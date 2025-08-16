@@ -344,18 +344,17 @@ export default function HomePage() {
                   <div className="w-16 h-16 bg-blue-500 rounded-full"></div>
                 </div>
                 
-                <div className="w-20 h-20 bg-white rounded-2xl border-2 border-blue-500/20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg">
+                <div className="w-20 h-20 bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl border-2 border-emerald-500/30 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg">
                   <img
-                    src="/logos/9951FC41-18FC-4775-8B08-729DF54B28DA.jpeg"
-                    alt="GIC Logo"
-                    className="w-14 h-14 object-contain"
+                    src="/logos/logo-goat-improvement.png"
+                    alt="Awais Livestock Logo"
+                    className="w-14 h-14 object-contain filter brightness-110"
                   />
                 </div>
-                
                 <h3 className="text-xl font-bold leading-tight tracking-[-0.015em] text-foreground mb-4">
                   GIC
                 </h3>
-                <p className="text-lg font-semibold text-blue-600 mb-3">Goat Investment Company</p>
+                <p className="text-lg font-semibold text-blue-600 mb-3">Goat Improvement Company</p>
                 <p className="text-sm font-normal leading-relaxed text-muted-foreground mb-6">
                   Strategic investment partner specializing in goat breeding programs, livestock genetics, and agricultural infrastructure development. Focused on enhancing goat production systems through modern breeding techniques and sustainable farming practices.
                 </p>
@@ -427,14 +426,14 @@ export default function HomePage() {
                   <div className="w-16 h-16 bg-emerald-500 rounded-full"></div>
                 </div>
                 
-                <div className="w-20 h-20 bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl border-2 border-emerald-500/30 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg">
+                
+                <div className="w-20 h-20 bg-white rounded-2xl border-2 border-blue-500/20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg">
                   <img
-                    src="/logos/logo-goat-improvement.png"
-                    alt="Awais Livestock Logo"
-                    className="w-14 h-14 object-contain filter brightness-110"
+                    src="/logos/9951FC41-18FC-4775-8B08-729DF54B28DA.jpeg"
+                    alt="Awais livestock"
+                    className="w-14 h-14 object-contain"
                   />
                 </div>
-                
                 <h3 className="text-xl font-bold leading-tight tracking-[-0.015em] text-foreground mb-4">
                   Awais Livestock
                 </h3>

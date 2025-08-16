@@ -48,7 +48,7 @@ export default function AboutPage() {
             </div>
             <div>
               <img
-                src="/pakistani-livestock-farm.png"
+                src="/istockphoto-524073151-612x612.jpg"
                 alt="Pakistani agricultural landscape"
                 className="w-full rounded-lg shadow-lg"
               />
@@ -187,11 +187,11 @@ export default function AboutPage() {
             <Card className="text-center hover:shadow-lg transition-shadow">
               <CardContent className="pt-6">
                 <img
-                  src="/pakistani-ceo.png"
+                  src="/danish.jpeg"
                   alt="CEO Muhammad Awais"
-                  className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+                  className="w-32 h-32 rounded-full mx-auto mb-4 object-contain"
                 />
-                <h3 className="text-base font-medium leading-normal text-foreground mb-2">Muhammad Awais</h3>
+                <h3 className="text-base font-medium leading-normal text-foreground mb-2">Chaudhary Danish</h3>
                 <Badge variant="secondary" className="mb-3">
                   Chief Executive Officer
                 </Badge>
