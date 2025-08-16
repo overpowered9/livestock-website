@@ -1,6 +1,7 @@
 "use client"
 
 import type React from "react"
+import { useRouter } from "next/navigation"
 
 import { Navigation } from "@/components/navigation"
 import { Button } from "@/components/ui/button"
@@ -17,6 +18,7 @@ import { useEffect, useMemo, useState } from "react"
 import { Plus, Edit, Trash2, Eye, Save, X } from "lucide-react"
 
 export default function AdminPage() {
+  const router = useRouter()
   const [items, setItems] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
@@ -103,6 +105,14 @@ export default function AdminPage() {
     }
   }
 
+  const handleLogout = async () => {
+    try {
+      await fetch("/api/admin/logout", { method: "POST" })
+    } finally {
+      router.replace("/admin/login")
+    }
+  }
+
   const goats = useMemo(() => items.filter((p) => p.type === "goat"), [items])
   const cows = useMemo(() => items.filter((p) => p.type === "cow"), [items])
   const vegetables = useMemo(() => items.filter((p) => p.type === "vegetable"), [items])
@@ -125,6 +135,7 @@ export default function AdminPage() {
               Add New Product
             </Button>
             <Button variant="outline" onClick={loadProducts}>Refresh</Button>
+            <Button variant="ghost" onClick={handleLogout}>Logout</Button>
           </div>
         </div>
 
