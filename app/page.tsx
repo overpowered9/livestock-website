@@ -346,7 +346,7 @@ export default function HomePage() {
                 
                 <div className="w-20 h-20 bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl border-2 border-emerald-500/30 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg">
                   <img
-                    src="/logos/logo-goat-improvement.png"
+                    src="/logos/Logo-Goat-Improvement.png"
                     alt="Awais Livestock Logo"
                     className="w-14 h-14 object-contain filter brightness-110"
                   />
