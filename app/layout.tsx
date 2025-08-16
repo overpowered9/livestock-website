@@ -33,6 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${plusJakartaSans.variable} ${notoSans.variable}`}>
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <style>{`
           html {
             font-family: "Plus Jakarta Sans", "Noto Sans", sans-serif;
@@ -41,7 +42,7 @@ export default function RootLayout({
           }
         `}</style>
       </head>
-      <body suppressHydrationWarning>
+      <body suppressHydrationWarning className="overflow-x-hidden">
         {children}
         <Toaster />
       </body>

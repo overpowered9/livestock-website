@@ -11,20 +11,20 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <section
-        className="relative min-h-[360px] sm:min-h-[480px] flex items-center justify-center bg-cover bg-center bg-no-repeat rounded-lg mx-4 sm:mx-6 lg:mx-8 my-4 sm:my-6"
+        className="relative min-h-[320px] sm:min-h-[480px] flex items-center justify-center bg-cover bg-center bg-no-repeat rounded-lg mx-3 sm:mx-6 lg:mx-8 my-3 sm:my-6"
         style={{
           backgroundImage:
             `linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("/boer-goat.png")`,
         }}
       >
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-black leading-tight tracking-[-0.033em] mb-6">
+          <h1 className="text-3xl md:text-5xl font-black leading-tight tracking-[-0.033em] mb-4 md:mb-6">
             Premium Livestock Excellence
           </h1>
-          <p className="text-base md:text-lg mb-8 leading-normal max-w-2xl mx-auto">
+          <p className="text-base md:text-lg mb-6 md:mb-8 leading-normal max-w-2xl mx-auto">
             Discover our world-class Boer goats and premium livestock, raised with care and expertise to deliver the highest quality for your agricultural success.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <Button asChild size="lg" className="min-w-[84px] max-w-[480px] h-12 px-5 bg-primary text-primary-foreground text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
               <Link href="/livestock">Explore Our Livestock</Link>
             </Button>
@@ -41,10 +41,10 @@ export default function HomePage() {
       </section>
 
       {/* Our Vision Section - Interactive Component */}
-      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <section className="px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-[32px] font-bold leading-tight tracking-[-0.015em] text-foreground mb-6">
+          <div className="text-center mb-10 sm:mb-16">
+            <h2 className="text-2xl sm:text-[32px] font-bold leading-tight tracking-[-0.015em] text-foreground mb-4 sm:mb-6">
               Our Vision & Mission
             </h2>
             <p className="text-base font-normal leading-normal text-muted-foreground max-w-3xl mx-auto">
@@ -53,7 +53,7 @@ export default function HomePage() {
           </div>
 
           {/* Interactive Vision Cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <Card className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 hover:border-primary/20">
               <CardContent className="p-8 text-center">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors">
@@ -140,16 +140,16 @@ export default function HomePage() {
           </div>
 
           {/* Vision Statement */}
-          <div className="mt-16 text-center">
+          <div className="mt-12 sm:mt-16 text-center">
             <Card className="bg-gradient-to-r from-primary/5 to-accent/5 border-2 border-primary/10">
-              <CardContent className="p-12">
-                <h3 className="text-2xl font-bold leading-tight tracking-[-0.015em] text-foreground mb-6">
+              <CardContent className="p-6 sm:p-10 md:p-12">
+                <h3 className="text-xl sm:text-2xl font-bold leading-tight tracking-[-0.015em] text-foreground mb-4 sm:mb-6">
                   Our Vision Statement
                 </h3>
-                <p className="text-lg font-normal leading-normal text-foreground max-w-4xl mx-auto mb-8">
+                <p className="text-base sm:text-lg font-normal leading-normal text-foreground max-w-4xl mx-auto mb-6 sm:mb-8">
                   "To become Pakistan's leading livestock and agricultural company, recognized globally for our commitment to quality, innovation, and sustainable practices. We envision a future where Pakistani farmers have access to world-class livestock and expertise, enabling them to compete successfully in international markets while preserving our agricultural heritage."
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                   <Button asChild size="lg" className="min-w-[84px] max-w-[480px] h-12 px-5 bg-primary text-primary-foreground text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
                     <Link href="/about">Learn More About Us</Link>
                   </Button>
@@ -164,27 +164,27 @@ export default function HomePage() {
       </section>
 
       {/* CEO Message Section */}
-      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <section className="px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-[32px] font-bold leading-tight tracking-[-0.015em] text-foreground mb-6">Message from Our CEO</h2>
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-[32px] font-bold leading-tight tracking-[-0.015em] text-foreground mb-3 sm:mb-6">Message from Our CEO</h2>
             <p className="text-base font-normal leading-normal text-muted-foreground max-w-2xl mx-auto">
               Hear directly from our leadership about our commitment to excellence and the future of Pakistan's livestock industry.
             </p>
           </div>
           
           <Card className="bg-gradient-to-br from-primary/5 via-background to-accent/5 border-2 border-primary/10">
-            <CardContent className="p-12">
-              <div className="flex flex-col lg:flex-row gap-8 items-start">
+            <CardContent className="p-6 sm:p-10 md:p-12">
+              <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 items-start">
                 <div className="flex-shrink-0">
                   <div className="relative">
                     <img
                       src="/danish.jpeg"
                       alt="Muhammad Awais - CEO of D.A.D Private Limited"
-                      className="w-40 h-40 rounded-full object-contain border-4 border-primary/20 shadow-lg"
+                      className="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-contain border-4 border-primary/20 shadow-lg"
                     />
-                    <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-                      <span className="text-white font-bold text-lg">CD</span>
+                    <div className="absolute -bottom-2 -right-2 w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-full flex items-center justify-center">
+                      <span className="text-white font-bold text-base sm:text-lg">CD</span>
                     </div>
                   </div>
                 </div>
@@ -243,7 +243,7 @@ export default function HomePage() {
                     </p>
                   </div>
                   
-                  <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                  <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
                     <Button asChild size="lg" className="min-w-[84px] max-w-[480px] h-12 px-5 bg-primary text-primary-foreground text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
                       <Link href="/about">Learn More About Our Story</Link>
                     </Button>
@@ -259,18 +259,18 @@ export default function HomePage() {
       </section>
 
       {/* Strategic Partnership Section */}
-      <section className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 bg-gradient-to-b from-background to-muted/30">
+      <section className="px-4 sm:px-6 lg:px-8 py-10 sm:py-16 bg-gradient-to-b from-background to-muted/30">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-[32px] font-bold leading-tight tracking-[-0.015em] text-foreground mb-6">
+          <div className="text-center mb-10 sm:mb-16">
+            <h2 className="text-2xl sm:text-[32px] font-bold leading-tight tracking-[-0.015em] text-foreground mb-4 sm:mb-6">
               Strategic Partnership
             </h2>
-            <p className="text-base font-normal leading-normal text-muted-foreground max-w-3xl mx-auto mb-8">
+            <p className="text-base font-normal leading-normal text-muted-foreground max-w-3xl mx-auto mb-6 sm:mb-8">
               A powerful collaboration between industry leaders to revolutionize Pakistan's livestock sector through innovation, quality, and sustainable practices.
             </p>
             
             {/* Partnership Logo Showcase */}
-            <div className="flex items-center justify-center gap-6 mb-12 flex-wrap">
+            <div className="flex items-center justify-center gap-4 sm:gap-6 mb-10 sm:mb-12 flex-wrap">
               <div className="group relative">
                 <div className="w-24 h-24 bg-white rounded-2xl border-2 border-primary/20 flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
                   <img
@@ -330,13 +330,13 @@ export default function HomePage() {
             </div>
 
             {/* Partnership Tagline */}
-            <div className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-full px-8 py-3 inline-block border border-primary/20">
-              <span className="text-primary font-semibold text-lg">Excellence • Innovation • Growth</span>
+            <div className="bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 rounded-full px-6 sm:px-8 py-2.5 sm:py-3 inline-block border border-primary/20">
+              <span className="text-primary font-semibold text-base sm:text-lg">Excellence • Innovation • Growth</span>
             </div>
           </div>
 
           {/* Partnership Cards */}
-          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
             <Card className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-0 bg-gradient-to-br from-white via-white to-primary/5 overflow-hidden">
               <div className="h-1 bg-gradient-to-r from-blue-500 to-blue-600"></div>
               <CardContent className="p-8 text-center relative">
@@ -461,17 +461,17 @@ export default function HomePage() {
           </div>
 
           {/* Partnership Impact */}
-          <div className="text-center mb-12">
-            <h3 className="text-2xl font-bold leading-tight tracking-[-0.015em] text-foreground mb-6">
+          <div className="text-center mb-8 sm:mb-12">
+            <h3 className="text-xl sm:text-2xl font-bold leading-tight tracking-[-0.015em] text-foreground mb-4 sm:mb-6">
               Partnership Impact & Benefits
             </h3>
-            <p className="text-base font-normal leading-normal text-muted-foreground max-w-4xl mx-auto mb-8">
+            <p className="text-base font-normal leading-normal text-muted-foreground max-w-4xl mx-auto mb-6 sm:mb-8">
               Our strategic alliance creates a comprehensive ecosystem that drives innovation, ensures quality, and delivers sustainable growth across Pakistan's agricultural landscape.
             </p>
           </div>
 
           {/* Impact Metrics */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-10 sm:mb-12">
             <Card className="group hover:shadow-lg transition-all duration-300 border-l-4 border-l-blue-500">
               <CardContent className="p-6 text-center">
                 <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-100 transition-colors">
@@ -524,16 +524,16 @@ export default function HomePage() {
           {/* Call to Action */}
           <div className="text-center">
             <Card className="bg-gradient-to-r from-primary/5 via-accent/5 to-primary/5 border-2 border-primary/20 overflow-hidden">
-              <CardContent className="p-12 relative">
+              <CardContent className="p-6 sm:p-10 md:p-12 relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5 opacity-50"></div>
                 <div className="relative">
-                  <h3 className="text-2xl font-bold leading-tight tracking-[-0.015em] text-foreground mb-4">
+                  <h3 className="text-xl sm:text-2xl font-bold leading-tight tracking-[-0.015em] text-foreground mb-3 sm:mb-4">
                     Join Our Partnership Ecosystem
                   </h3>
-                  <p className="text-base font-normal leading-normal text-muted-foreground max-w-3xl mx-auto mb-8">
+                  <p className="text-base font-normal leading-normal text-muted-foreground max-w-3xl mx-auto mb-6 sm:mb-8">
                     Be part of Pakistan's agricultural transformation. Connect with us to explore partnership opportunities and learn how we can support your livestock and agricultural goals.
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                     <Button asChild size="lg" className="min-w-[84px] max-w-[480px] h-12 px-8 bg-primary text-primary-foreground text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 shadow-lg hover:shadow-xl transition-all duration-300">
                       <Link href="/contact">Partner With Us</Link>
                     </Button>
@@ -549,9 +549,9 @@ export default function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-foreground text-white py-12 mt-10">
+      <footer className="bg-foreground text-white py-10 sm:py-12 mt-8 sm:mt-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid gap-8 md:grid-cols-4">
             <div className="md:col-span-2">
               <h3 className="text-2xl font-bold leading-tight tracking-[-0.015em] mb-4">D.A.D Private Limited</h3>
               <p className="text-gray-300 leading-relaxed">
@@ -588,7 +588,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="border-t border-gray-700 mt-8 pt-8 text-center">
+          <div className="border-t border-gray-700 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center">
             <p className="text-gray-300">© 2024 D.A.D Private Limited. All rights reserved.</p>
           </div>
         </div>

@@ -124,12 +124,12 @@ export default function AdminPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
           <div>
-            <h1 className="text-3xl font-serif font-bold text-foreground">Admin Panel</h1>
-            <p className="text-muted-foreground mt-2">Manage livestock and agricultural products</p>
+            <h1 className="text-2xl sm:text-3xl font-serif font-bold text-foreground">Admin Panel</h1>
+            <p className="text-muted-foreground mt-1 sm:mt-2">Manage livestock and agricultural products</p>
           </div>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             <Button onClick={() => setIsAddingProduct(true)} className="flex items-center gap-2">
               <Plus className="w-4 h-4" />
               Add New Product
@@ -177,7 +177,7 @@ export default function AdminPage() {
               <div className="p-6 text-sm text-muted-foreground">Loading...</div>
             ) : (
               <Tabs defaultValue="goats" className="w-full">
-                <TabsList className="grid w-full grid-cols-4">
+                <TabsList className="grid w-full grid-cols-2 md:grid-cols-4">
                   <TabsTrigger value="goats">Goats ({goats.length})</TabsTrigger>
                   <TabsTrigger value="cows">Cows ({cows.length})</TabsTrigger>
                   <TabsTrigger value="vegetables">Vegetables ({vegetables.length})</TabsTrigger>
