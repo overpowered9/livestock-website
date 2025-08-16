@@ -188,7 +188,7 @@ export default function AdminPage() {
                                 <Badge variant={product.availability === "available" ? "default" : "secondary"} className="text-xs">
                                   {product.availability}
                                 </Badge>
-                                <span className="text-sm font-medium text-primary">{product.price}</span>
+                                <span className="text-sm font-medium text-primary">{product.price || "Contact for price"}</span>
                               </div>
                             </div>
                           </div>
@@ -246,7 +246,7 @@ export default function AdminPage() {
                                 <Badge variant={product.availability === "available" ? "default" : "secondary"} className="text-xs">
                                   {product.availability}
                                 </Badge>
-                                <span className="text-sm font-medium text-primary">{product.price}</span>
+                                <span className="text-sm font-medium text-primary">{product.price || "Contact for price"}</span>
                               </div>
                             </div>
                           </div>
@@ -279,7 +279,7 @@ export default function AdminPage() {
                                 <Badge variant={product.availability === "available" ? "default" : "secondary"} className="text-xs">
                                   {product.availability}
                                 </Badge>
-                                <span className="text-sm font-medium text-primary">{product.price}</span>
+                                <span className="text-sm font-medium text-primary">{product.price || "Contact for price"}</span>
                               </div>
                             </div>
                           </div>
@@ -312,7 +312,7 @@ export default function AdminPage() {
                                 <Badge variant={product.availability === "available" ? "default" : "secondary"} className="text-xs">
                                   {product.availability}
                                 </Badge>
-                                <span className="text-sm font-medium text-primary">{product.price}</span>
+                                <span className="text-sm font-medium text-primary">{product.price || "Contact for price"}</span>
                               </div>
                             </div>
                           </div>

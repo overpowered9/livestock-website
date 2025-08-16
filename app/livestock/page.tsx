@@ -31,6 +31,23 @@ export default async function LivestockPage() {
             the highest standards.
           </p>
 
+          {/* Description Section */}
+          <Card className="mx-4 mb-6">
+            <CardHeader>
+              <CardTitle className="text-xl font-serif">Description</CardTitle>
+            </CardHeader>
+            <CardContent className="text-sm text-muted-foreground space-y-2">
+              <p>
+                Explore top-quality goats and cows bred for superior genetics and performance, alongside fresh farm
+                vegetables and premium honey products. Each listing includes origin, availability, and care details.
+              </p>
+              <p>
+                Pricing may vary due to seasonality and availability. If a price is not listed, please contact us for a
+                personalized quote.
+              </p>
+            </CardContent>
+          </Card>
+
           {/* Product Categories */}
           <Tabs defaultValue="goats" className="w-full">
             <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 mb-8">
@@ -72,15 +89,18 @@ export default async function LivestockPage() {
                       </Badge>
                     </div>
                     <div>
-                      <p className="text-base font-medium leading-normal text-foreground">{product.name}</p>
-                      <p className="text-sm font-normal leading-normal text-muted-foreground">
-                        {product.breed} • {product.origin}
-                      </p>
+                      {product.breed || product.origin ? (
+                        <p className="text-sm font-normal leading-normal text-muted-foreground">
+                          {product.breed && product.origin
+                            ? `${product.breed} • ${product.origin}`
+                            : product.breed || `Origin: ${product.origin}`}
+                        </p>
+                      ) : null}
                       <p className="text-sm font-normal leading-normal text-muted-foreground mt-1 line-clamp-2">
                         {product.description}
                       </p>
                       <div className="flex items-center justify-between mt-2">
-                        <span className="text-base font-semibold text-primary">{product.price}</span>
+                        <span className="text-base font-semibold text-primary">{product.price || "Contact for price"}</span>
                         <Button asChild size="sm" className="min-w-[84px] h-10 px-4">
                           <Link href={`/livestock/${product.id}`}>View Details</Link>
                         </Button>
@@ -115,15 +135,18 @@ export default async function LivestockPage() {
                       </Badge>
                     </div>
                     <div>
-                      <p className="text-base font-medium leading-normal text-foreground">{product.name}</p>
-                      <p className="text-sm font-normal leading-normal text-muted-foreground">
-                        {product.breed} • {product.origin}
-                      </p>
+                      {product.breed || product.origin ? (
+                        <p className="text-sm font-normal leading-normal text-muted-foreground">
+                          {product.breed && product.origin
+                            ? `${product.breed} • ${product.origin}`
+                            : product.breed || `Origin: ${product.origin}`}
+                        </p>
+                      ) : null}
                       <p className="text-sm font-normal leading-normal text-muted-foreground mt-1 line-clamp-2">
                         {product.description}
                       </p>
                       <div className="flex items-center justify-between mt-2">
-                        <span className="text-base font-semibold text-primary">{product.price}</span>
+                        <span className="text-base font-semibold text-primary">{product.price || "Contact for price"}</span>
                         <Button asChild size="sm" className="min-w-[84px] h-10 px-4">
                           <Link href={`/livestock/${product.id}`}>View Details</Link>
                         </Button>
@@ -158,15 +181,14 @@ export default async function LivestockPage() {
                       </Badge>
                     </div>
                     <div>
-                      <p className="text-base font-medium leading-normal text-foreground">{product.name}</p>
-                      <p className="text-sm font-normal leading-normal text-muted-foreground">
-                        Origin: {product.origin}
-                      </p>
+                      {product.origin ? (
+                        <p className="text-sm font-normal leading-normal text-muted-foreground">Origin: {product.origin}</p>
+                      ) : null}
                       <p className="text-sm font-normal leading-normal text-muted-foreground mt-1 line-clamp-2">
                         {product.description}
                       </p>
                       <div className="flex items-center justify-between mt-2">
-                        <span className="text-base font-semibold text-primary">{product.price}</span>
+                        <span className="text-base font-semibold text-primary">{product.price || "Contact for price"}</span>
                         <Button asChild size="sm" className="min-w-[84px] h-10 px-4">
                           <Link href={`/livestock/${product.id}`}>View Details</Link>
                         </Button>
@@ -201,15 +223,14 @@ export default async function LivestockPage() {
                       </Badge>
                     </div>
                     <div>
-                      <p className="text-base font-medium leading-normal text-foreground">{product.name}</p>
-                      <p className="text-sm font-normal leading-normal text-muted-foreground">
-                        Origin: {product.origin}
-                      </p>
+                      {product.origin ? (
+                        <p className="text-sm font-normal leading-normal text-muted-foreground">Origin: {product.origin}</p>
+                      ) : null}
                       <p className="text-sm font-normal leading-normal text-muted-foreground mt-1 line-clamp-2">
                         {product.description}
                       </p>
                       <div className="flex items-center justify-between mt-2">
-                        <span className="text-base font-semibold text-primary">{product.price}</span>
+                        <span className="text-base font-semibold text-primary">{product.price || "Contact for price"}</span>
                         <Button asChild size="sm" className="min-w-[84px] h-10 px-4">
                           <Link href={`/livestock/${product.id}`}>View Details</Link>
                         </Button>

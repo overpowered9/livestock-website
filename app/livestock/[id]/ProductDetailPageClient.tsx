@@ -124,22 +124,29 @@ export default function ProductDetailPageClient({ product, related }: ProductPag
                   </>
                 )}
               </div>
-              <p className="text-lg text-muted-foreground leading-relaxed">{product.description}</p>
             </div>
+
+            {/* Description Section */}
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg font-serif">Description</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-lg text-muted-foreground leading-relaxed">{product.description}</p>
+              </CardContent>
+            </Card>
 
             {/* Product Details */}
             <div className="grid gap-4">
-              {product.price && (
-                <Card>
-                  <CardContent className="flex items-center gap-3 pt-4">
-                    <DollarSign className="w-5 h-5 text-primary" />
-                    <div>
-                      <p className="font-semibold text-foreground">Price</p>
-                      <p className="text-lg text-primary font-bold">{product.price}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              )}
+              <Card>
+                <CardContent className="flex items-center gap-3 pt-4">
+                  <DollarSign className="w-5 h-5 text-primary" />
+                  <div>
+                    <p className="font-semibold text-foreground">Price</p>
+                    <p className="text-lg text-primary font-bold">{product.price || "Contact for price"}</p>
+                  </div>
+                </CardContent>
+              </Card>
 
               {product.origin && (
                 <Card>
@@ -223,11 +230,9 @@ export default function ProductDetailPageClient({ product, related }: ProductPag
                         <strong>Breed:</strong> {product.breed}
                       </p>
                     )}
-                    {product.price && (
-                      <p>
-                        <strong>Price:</strong> {product.price}
-                      </p>
-                    )}
+                    <p>
+                      <strong>Price:</strong> {product.price || "Contact for price"}
+                    </p>
                     <p>
                       <strong>Availability:</strong> {product.availability}
                     </p>
@@ -273,7 +278,7 @@ export default function ProductDetailPageClient({ product, related }: ProductPag
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-center justify-between">
-                    <span className="text-primary font-semibold">{relatedProduct.price}</span>
+                    <span className="text-primary font-semibold">{relatedProduct.price || "Contact for price"}</span>
                     <Button asChild size="sm" variant="outline">
                       <Link href={`/livestock/${relatedProduct.id}`}>View Details</Link>
                     </Button>
