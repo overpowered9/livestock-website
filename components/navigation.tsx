@@ -13,8 +13,8 @@ export function Navigation() {
             <Image
               src="/logos/image.png"
               alt="D.A.D Private Limited logo"
-              width={28}
-              height={28}
+              width={32}
+              height={32}
               priority
               className="h-6 w-6 sm:h-7 sm:w-7 rounded"
             />
