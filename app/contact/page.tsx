@@ -139,7 +139,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="text-base font-medium leading-normal text-foreground mb-1">Office Address</h3>
                     <p className="text-sm font-normal leading-normal text-muted-foreground">
-                      Main Boulevard, Agricultural District
+                      Main Boulevard
                       <br />
                       Lahore, Punjab, Pakistan
                     </p>
