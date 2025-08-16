@@ -14,17 +14,17 @@ async function getCollection() {
 
 export async function getAllProducts(): Promise<Product[]> {
   const col = await getCollection()
-  return col.find({}).sort({ name: 1 }).toArray()
+  return col.find({}, { projection: { _id: 0 } }).sort({ name: 1 }).toArray()
 }
 
 export async function getProductsByType(type: Product["type"]): Promise<Product[]> {
   const col = await getCollection()
-  return col.find({ type }).sort({ name: 1 }).toArray()
+  return col.find({ type }, { projection: { _id: 0 } }).sort({ name: 1 }).toArray()
 }
 
 export async function getProductById(id: string): Promise<Product | null> {
   const col = await getCollection()
-  return col.findOne({ id })
+  return col.findOne({ id }, { projection: { _id: 0 } })
 }
 
 export function slugify(input: string) {
