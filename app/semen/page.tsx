@@ -147,7 +147,7 @@ export default function SemenBreedingPage() {
                 <p>Early access to cutting‑edge genetics with strong genomic indicators.</p>
                 <ul className="list-disc list-inside space-y-1">
                   <li>Faster genetic gain potential</li>
-                  <li>Great for top cows and strategic matings</li>
+                  <li>Great for top does and strategic matings</li>
                   <li>Balanced with proven sires in herd plans</li>
                 </ul>
               </CardContent>
@@ -313,24 +313,15 @@ export default function SemenBreedingPage() {
       <section className="px-4 sm:px-6 lg:px-8 py-8">
         <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6 items-center">
           <div className="md:col-span-1">
-            <div className="grid grid-cols-2 gap-3">
-              {[
-                { name: "Saanen Goat", srcP: "/goatsimages/saanen%20goat.jpg" },
-                { name: "Boer Goat", srcP: "/goatsimages/boregoat.jpg" },
-                { name: "Alpine Goat", srcP: "/goatsimages/alpinegoat.jpeg" },
-                { name: "Toggenburg Goat", srcP: "/goatsimages/toggenberg.jpeg" },
-              ].map((b) => (
-                <div key={b.name} className="relative w-full aspect-[4/3] rounded-lg overflow-hidden bg-gradient-to-br from-muted to-background border">
-                  <SafeImage
-                    srcPrimary={b.srcP}
-                    srcFallback="/placeholder.jpg"
-                    alt={b.name}
-                    fill
-                    sizes="(min-width: 768px) 15vw, 40vw"
-                    className="object-contain object-center p-2"
-                  />
-                </div>
-              ))}
+            <div className="relative w-full aspect-square rounded-lg overflow-hidden bg-gradient-to-br from-muted to-background border">
+              <SafeImage
+                srcPrimary="/goatsimages/a_healthy_goat_with_young_female_vet.jpeg"
+                srcFallback="/placeholder.jpg"
+                alt="Healthy goat with veterinarian"
+                fill
+                sizes="(min-width: 768px) 30vw, 80vw"
+                className="object-cover object-center"
+              />
             </div>
           </div>
           <div className="md:col-span-2">
