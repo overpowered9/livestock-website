@@ -93,7 +93,7 @@ export default function ProductDetailPageClient({ product, related }: ProductPag
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Product Image */}
           <div className="space-y-4">
-            <div className="aspect-[3/4] relative overflow-hidden rounded-lg bg-card">
+            <div className="aspect-square relative overflow-hidden rounded-lg bg-card">
               <img src={product.image || "/placeholder.svg"} alt={product.name} className="w-full h-full object-cover" />
               <Badge
                 className={`absolute top-4 right-4 ${
@@ -112,7 +112,7 @@ export default function ProductDetailPageClient({ product, related }: ProductPag
           {/* Product Information */}
           <div className="space-y-6">
             <div>
-              <h1 className="text-4xl font-serif font-bold text-foreground mb-2">{product.name}</h1>
+              <h1 className="text-4xl  font-bold text-foreground mb-2">{product.name}</h1>
               <div className="flex items-center gap-2 text-muted-foreground mb-4">
                 <Badge variant="secondary" className="capitalize">
                   {product.type}
@@ -129,7 +129,7 @@ export default function ProductDetailPageClient({ product, related }: ProductPag
             {/* Description Section */}
             <Card>
               <CardHeader>
-                <CardTitle className="text-lg font-serif">Description</CardTitle>
+                <CardTitle className="text-lg">Description</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-lg text-muted-foreground leading-relaxed">{product.description}</p>
@@ -179,7 +179,7 @@ export default function ProductDetailPageClient({ product, related }: ProductPag
         <div className="mt-16">
           <Card className="max-w-2xl mx-auto">
             <CardHeader className="text-center">
-              <CardTitle className="text-2xl font-serif flex items-center justify-center gap-2">
+              <CardTitle className="text-2xl  flex items-center justify-center gap-2">
                 <Mail className="w-6 h-6 text-primary" />
                 Product Inquiry
               </CardTitle>
@@ -263,17 +263,17 @@ export default function ProductDetailPageClient({ product, related }: ProductPag
 
         {/* Related Products */}
         <div className="mt-16">
-          <h2 className="text-3xl font-serif font-bold text-center mb-8">
+          <h2 className="text-3xl font-bold text-center mb-8">
             More {product.type === "goat" ? "Goats" : product.type === "cow" ? "Cows" : product.type === "vegetable" ? "Vegetables" : "Honey Products"}
           </h2>
           <div className="grid md:grid-cols-3 gap-6">
             {related.map((relatedProduct) => (
               <Card key={relatedProduct.id} className="hover:shadow-lg transition-shadow">
-                <div className="aspect-[4/3] relative overflow-hidden rounded-t-lg">
+                <div className="aspect-video relative overflow-hidden rounded-t-lg">
                   <img src={relatedProduct.image || "/placeholder.svg"} alt={relatedProduct.name} className="w-full h-full object-cover" />
                 </div>
                 <CardHeader>
-                  <CardTitle className="text-lg font-serif">{relatedProduct.name}</CardTitle>
+                  <CardTitle className="text-lg">{relatedProduct.name}</CardTitle>
                   <p className="text-sm text-muted-foreground line-clamp-2">{relatedProduct.description}</p>
                 </CardHeader>
                 <CardContent>

@@ -38,7 +38,9 @@ export async function DELETE(_req: Request, { params }: { params: { id: string }
     const db = await getDb()
     const _id = new ObjectId(params.id)
     const res = await db.collection("requests").deleteOne({ _id })
-    if (res.deletedCount === 0) return NextResponse.json({ success: false, message: "Not found" }, { status: 404 })
+    if (res.deletedCount === 0) {
+      return NextResponse.json({ success: false, message: "Not found" }, { status: 404 })
+    }
     return NextResponse.json({ success: true })
   } catch (e) {
     return NextResponse.json({ success: false, message: "Invalid ID or server error" }, { status: 400 })

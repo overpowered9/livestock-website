@@ -1,10 +1,7 @@
 import { Navigation } from "@/components/navigation"
-import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import Link from "next/link"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { getProductsByType } from "@/lib/db-products"
+import { LivestockBrowser } from "./LivestockBrowser"
 
 export default async function LivestockPage() {
   const [goats, cows, vegetables, honey] = await Promise.all([
@@ -34,7 +31,7 @@ export default async function LivestockPage() {
           {/* Description Section */}
           <Card className="mx-4 mb-6">
             <CardHeader>
-              <CardTitle className="text-xl font-serif">Description</CardTitle>
+              <CardTitle className="text-xl">Description</CardTitle>
             </CardHeader>
             <CardContent className="text-sm text-muted-foreground space-y-2">
               <p>
@@ -48,199 +45,8 @@ export default async function LivestockPage() {
             </CardContent>
           </Card>
 
-          {/* Product Categories */}
-          <Tabs defaultValue="goats" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 mb-8">
-              <TabsTrigger value="goats" className="text-sm font-medium">
-                Goats ({goats.length})
-              </TabsTrigger>
-              <TabsTrigger value="cows" className="text-sm font-medium">
-                Cows ({cows.length})
-              </TabsTrigger>
-              <TabsTrigger value="vegetables" className="text-sm font-medium">
-                Vegetables ({vegetables.length})
-              </TabsTrigger>
-              <TabsTrigger value="honey" className="text-sm font-medium">
-                Honey ({honey.length})
-              </TabsTrigger>
-            </TabsList>
-
-            {/* Goats Tab */}
-            <TabsContent value="goats">
-              <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
-                {goats.map((product) => (
-                  <div key={product.id} className="flex flex-col gap-3 pb-3">
-                    <div className="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg relative overflow-hidden">
-                      <img
-                        src={product.image || "/placeholder.svg"}
-                        alt={product.name}
-                        className="w-full h-full object-cover"
-                      />
-                      <Badge
-                        className={`absolute top-3 right-3 ${
-                          product.availability === "available"
-                            ? "bg-primary"
-                            : product.availability === "seasonal"
-                              ? "bg-accent text-accent-foreground"
-                              : "bg-destructive"
-                        }`}
-                      >
-                        {product.availability}
-                      </Badge>
-                    </div>
-                    <div>
-                      {product.breed || product.origin ? (
-                        <p className="text-sm font-normal leading-normal text-muted-foreground">
-                          {product.breed && product.origin
-                            ? `${product.breed} • ${product.origin}`
-                            : product.breed || `Origin: ${product.origin}`}
-                        </p>
-                      ) : null}
-                      <p className="text-sm font-normal leading-normal text-muted-foreground mt-1 line-clamp-2">
-                        {product.description}
-                      </p>
-                      <div className="flex items-center justify-between mt-2">
-                        <span className="text-base font-semibold text-primary">{product.price || "Contact for price"}</span>
-                        <Button asChild size="sm" className="min-w-[84px] h-10 px-4">
-                          <Link href={`/livestock/${product.id}`}>View Details</Link>
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </TabsContent>
-
-            {/* Cows Tab */}
-            <TabsContent value="cows">
-              <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
-                {cows.map((product) => (
-                  <div key={product.id} className="flex flex-col gap-3 pb-3">
-                    <div className="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg relative overflow-hidden">
-                      <img
-                        src={product.image || "/placeholder.svg"}
-                        alt={product.name}
-                        className="w-full h-full object-cover"
-                      />
-                      <Badge
-                        className={`absolute top-3 right-3 ${
-                          product.availability === "available"
-                            ? "bg-primary"
-                            : product.availability === "seasonal"
-                              ? "bg-accent text-accent-foreground"
-                              : "bg-destructive"
-                        }`}
-                      >
-                        {product.availability}
-                      </Badge>
-                    </div>
-                    <div>
-                      {product.breed || product.origin ? (
-                        <p className="text-sm font-normal leading-normal text-muted-foreground">
-                          {product.breed && product.origin
-                            ? `${product.breed} • ${product.origin}`
-                            : product.breed || `Origin: ${product.origin}`}
-                        </p>
-                      ) : null}
-                      <p className="text-sm font-normal leading-normal text-muted-foreground mt-1 line-clamp-2">
-                        {product.description}
-                      </p>
-                      <div className="flex items-center justify-between mt-2">
-                        <span className="text-base font-semibold text-primary">{product.price || "Contact for price"}</span>
-                        <Button asChild size="sm" className="min-w-[84px] h-10 px-4">
-                          <Link href={`/livestock/${product.id}`}>View Details</Link>
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </TabsContent>
-
-            {/* Vegetables Tab */}
-            <TabsContent value="vegetables">
-              <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
-                {vegetables.map((product) => (
-                  <div key={product.id} className="flex flex-col gap-3 pb-3">
-                    <div className="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg relative overflow-hidden">
-                      <img
-                        src={product.image || "/placeholder.svg"}
-                        alt={product.name}
-                        className="w-full h-full object-cover"
-                      />
-                      <Badge
-                        className={`absolute top-3 right-3 ${
-                          product.availability === "available"
-                            ? "bg-primary"
-                            : product.availability === "seasonal"
-                              ? "bg-accent text-accent-foreground"
-                              : "bg-destructive"
-                        }`}
-                      >
-                        {product.availability}
-                      </Badge>
-                    </div>
-                    <div>
-                      {product.origin ? (
-                        <p className="text-sm font-normal leading-normal text-muted-foreground">Origin: {product.origin}</p>
-                      ) : null}
-                      <p className="text-sm font-normal leading-normal text-muted-foreground mt-1 line-clamp-2">
-                        {product.description}
-                      </p>
-                      <div className="flex items-center justify-between mt-2">
-                        <span className="text-base font-semibold text-primary">{product.price || "Contact for price"}</span>
-                        <Button asChild size="sm" className="min-w-[84px] h-10 px-4">
-                          <Link href={`/livestock/${product.id}`}>View Details</Link>
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </TabsContent>
-
-            {/* Honey Tab */}
-            <TabsContent value="honey">
-              <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
-                {honey.map((product) => (
-                  <div key={product.id} className="flex flex-col gap-3 pb-3">
-                    <div className="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg relative overflow-hidden">
-                      <img
-                        src={product.image || "/placeholder.svg"}
-                        alt={product.name}
-                        className="w-full h-full object-cover"
-                      />
-                      <Badge
-                        className={`absolute top-3 right-3 ${
-                          product.availability === "available"
-                            ? "bg-primary"
-                            : product.availability === "seasonal"
-                              ? "bg-accent text-accent-foreground"
-                              : "bg-destructive"
-                        }`}
-                      >
-                        {product.availability}
-                      </Badge>
-                    </div>
-                    <div>
-                      {product.origin ? (
-                        <p className="text-sm font-normal leading-normal text-muted-foreground">Origin: {product.origin}</p>
-                      ) : null}
-                      <p className="text-sm font-normal leading-normal text-muted-foreground mt-1 line-clamp-2">
-                        {product.description}
-                      </p>
-                      <div className="flex items-center justify-between mt-2">
-                        <span className="text-base font-semibold text-primary">{product.price || "Contact for price"}</span>
-                        <Button asChild size="sm" className="min-w-[84px] h-10 px-4">
-                          <Link href={`/livestock/${product.id}`}>View Details</Link>
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </TabsContent>
-          </Tabs>
+          {/* Browser with search/sort/filter and tabs */}
+          <LivestockBrowser goats={goats} cows={cows} vegetables={vegetables} honey={honey} />
         </div>
       </div>
     </div>

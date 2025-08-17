@@ -1,4 +1,3 @@
-// filepath: /Users/zaid/Downloads/livestock-website/lib/types.ts
 export interface Product {
   id: string
   name: string
@@ -10,6 +9,7 @@ export interface Product {
   careInstructions?: string
   price?: string
   availability: "available" | "out-of-stock" | "seasonal"
+  createdAt?: Date
 }
 
 export type RequestType = "contact" | "inquiry"
