@@ -70,7 +70,7 @@ export default async function LivestockPage() {
               <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
                 {goats.map((product) => (
                   <div key={product.id} className="flex flex-col gap-3 pb-3">
-                    <div className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg relative overflow-hidden">
+                    <div className="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg relative overflow-hidden">
                       <img
                         src={product.image || "/placeholder.svg"}
                         alt={product.name}
@@ -116,7 +116,7 @@ export default async function LivestockPage() {
               <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
                 {cows.map((product) => (
                   <div key={product.id} className="flex flex-col gap-3 pb-3">
-                    <div className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg relative overflow-hidden">
+                    <div className="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg relative overflow-hidden">
                       <img
                         src={product.image || "/placeholder.svg"}
                         alt={product.name}
@@ -162,7 +162,7 @@ export default async function LivestockPage() {
               <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
                 {vegetables.map((product) => (
                   <div key={product.id} className="flex flex-col gap-3 pb-3">
-                    <div className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg relative overflow-hidden">
+                    <div className="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg relative overflow-hidden">
                       <img
                         src={product.image || "/placeholder.svg"}
                         alt={product.name}
@@ -204,7 +204,7 @@ export default async function LivestockPage() {
               <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
                 {honey.map((product) => (
                   <div key={product.id} className="flex flex-col gap-3 pb-3">
-                    <div className="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-lg relative overflow-hidden">
+                    <div className="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg relative overflow-hidden">
                       <img
                         src={product.image || "/placeholder.svg"}
                         alt={product.name}

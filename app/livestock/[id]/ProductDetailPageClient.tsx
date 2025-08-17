@@ -93,7 +93,7 @@ export default function ProductDetailPageClient({ product, related }: ProductPag
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Product Image */}
           <div className="space-y-4">
-            <div className="aspect-square relative overflow-hidden rounded-lg bg-card">
+            <div className="aspect-[3/4] relative overflow-hidden rounded-lg bg-card">
               <img src={product.image || "/placeholder.svg"} alt={product.name} className="w-full h-full object-cover" />
               <Badge
                 className={`absolute top-4 right-4 ${
@@ -269,7 +269,7 @@ export default function ProductDetailPageClient({ product, related }: ProductPag
           <div className="grid md:grid-cols-3 gap-6">
             {related.map((relatedProduct) => (
               <Card key={relatedProduct.id} className="hover:shadow-lg transition-shadow">
-                <div className="aspect-video relative overflow-hidden rounded-t-lg">
+                <div className="aspect-[4/3] relative overflow-hidden rounded-t-lg">
                   <img src={relatedProduct.image || "/placeholder.svg"} alt={relatedProduct.name} className="w-full h-full object-cover" />
                 </div>
                 <CardHeader>

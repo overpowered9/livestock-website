@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F6F6F8"/>
+      <stop offset="100%" stop-color="#ECECF2"/>
+    </linearGradient>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bg)"/>
+  <g transform="translate(400 460)">
+    <ellipse cx="0" cy="170" rx="220" ry="30" fill="#000" opacity="0.06"/>
+    <rect x="-160" y="-60" rx="50" ry="50" width="320" height="180" fill="#fff" stroke="#B6B6C8" stroke-width="4"/>
+    <rect x="90" y="-110" width="50" height="110" rx="25" fill="#fff" stroke="#B6B6C8" stroke-width="4"/>
+    <g transform="translate(120 -160)">
+      <rect x="-40" y="0" width="130" height="75" rx="38" fill="#fff" stroke="#B6B6C8" stroke-width="4"/>
+      <circle cx="20" cy="40" r="6" fill="#55576A"/>
+      <circle cx="60" cy="40" r="6" fill="#55576A"/>
+      <!-- Toggenburg face stripes hint -->
+      <path d="M-35,15 h120 v10 h-120Z" fill="#EDEDF3"/>
+      <path d="M-35,35 h120 v10 h-120Z" fill="#EDEDF3"/>
+      <path d="M100,0 C120,-30 95,-55 65,-45" stroke="#8F90A5" stroke-width="6" fill="none"/>
+      <path d="M-10,0 C-30,-30 -5,-55 25,-45" stroke="#A0A1B2" stroke-width="6" fill="none"/>
+    </g>
+    <g stroke="#B6B6C8" stroke-width="6" stroke-linecap="round">
+      <line x1="-110" y1="120" x2="-110" y2="200"/>
+      <line x1="-60" y1="120" x2="-60" y2="200"/>
+      <line x1="90" y1="120" x2="90" y2="200"/>
+      <line x1="140" y1="120" x2="140" y2="200"/>
+    </g>
+  </g>
+  <text x="400" y="760" text-anchor="middle" font-family="Inter,system-ui" font-size="18" fill="#6B6D7F">Toggenburg (AI illustration)</text>
+</svg>
