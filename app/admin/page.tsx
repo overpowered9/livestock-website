@@ -15,7 +15,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import type { Product } from "@/lib/types"
 import { useEffect, useMemo, useState } from "react"
-import { Plus, Edit, Trash2, Eye, Save, X } from "lucide-react"
+import { Plus, Edit, Trash2, Eye, Save, X, LogOut, Mail } from "lucide-react"
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger, AlertDialogDescription } from "@/components/ui/alert-dialog"
 
 export default function AdminPage() {
   const router = useRouter()
@@ -135,7 +136,34 @@ export default function AdminPage() {
               Add New Product
             </Button>
             <Button variant="outline" onClick={loadProducts}>Refresh</Button>
-            <Button variant="ghost" onClick={handleLogout}>Logout</Button>
+            {/* New: View Requests button */}
+            <Button variant="secondary" onClick={() => router.push("/admin/requests")} className="flex items-center gap-2">
+              <Mail className="w-4 h-4" />
+              View Requests
+            </Button>
+            {/* Improved: Logout with confirmation dialog and destructive styling */}
+            <AlertDialog>
+              <AlertDialogTrigger asChild>
+                <Button variant="destructive" className="flex items-center gap-2">
+                  <LogOut className="w-4 h-4" />
+                  Logout
+                </Button>
+              </AlertDialogTrigger>
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Sign out?</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    You will be logged out of the admin panel.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <AlertDialogAction onClick={handleLogout} className="bg-destructive text-destructive-foreground hover:bg-destructive/90">
+                    Logout
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
           </div>
         </div>
 

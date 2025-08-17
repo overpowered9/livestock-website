@@ -1,5 +1,8 @@
 "use server"
 
+import { getDb } from "@/lib/mongodb"
+import type { ContactRequestDoc, ProductInquiryRequestDoc } from "@/lib/types"
+
 interface ContactFormData {
   firstName: string
   lastName: string
@@ -27,77 +30,36 @@ interface ProductInquiryData {
 
 export async function sendContactForm(formData: ContactFormData) {
   try {
-    // In a real application, you would use a service like Resend, SendGrid, or Nodemailer
-    // For now, we'll simulate the email sending process
-
-    const emailContent = `
-New Contact Form Submission
-
-From: ${formData.firstName} ${formData.lastName}
-Email: ${formData.email}
-Phone: ${formData.phone || "Not provided"}
-Company: ${formData.company || "Not provided"}
-Location: ${formData.location || "Not provided"}
-Inquiry Type: ${formData.inquiryType}
-
-Subject: ${formData.subject}
-
-Message:
-${formData.message}
-
----
-Sent from D.A.D Private Limited Website
-    `.trim()
-
-    // Simulate email sending delay
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-
-    // In production, replace this with actual email service
-    console.log("Email would be sent to: info@dadprivatelimited.com")
-    console.log("Email content:", emailContent)
-
-    return { success: true, message: "Your message has been sent successfully!" }
+    const db = await getDb()
+    const doc: ContactRequestDoc = {
+      type: "contact",
+      read: false,
+      createdAt: new Date(),
+      source: "web",
+      data: { ...formData },
+    }
+    await db.collection("requests").insertOne(doc)
+    return { success: true, message: "Your message has been received. We will get back to you shortly." }
   } catch (error) {
-    console.error("Error sending email:", error)
-    return { success: false, message: "Failed to send message. Please try again." }
+    console.error("Error saving contact form:", error)
+    return { success: false, message: "Failed to submit. Please try again." }
   }
 }
 
 export async function sendProductInquiry(formData: ProductInquiryData) {
   try {
-    const emailContent = `
-New Product Inquiry
-
-Customer Information:
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone || "Not provided"}
-Location: ${formData.location || "Not provided"}
-Quantity Interested: ${formData.quantity || "Not specified"}
-
-Product Details:
-Product: ${formData.productName}
-${formData.productBreed ? `Breed: ${formData.productBreed}` : ""}
-${formData.productPrice ? `Price: ${formData.productPrice}` : ""}
-Availability: ${formData.productAvailability}
-
-Customer Message:
-${formData.message}
-
----
-Sent from D.A.D Private Limited Website
-    `.trim()
-
-    // Simulate email sending delay
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-
-    // In production, replace this with actual email service
-    console.log("Email would be sent to: info@dadprivatelimited.com")
-    console.log("Email content:", emailContent)
-
-    return { success: true, message: "Your inquiry has been sent successfully!" }
+    const db = await getDb()
+    const doc: ProductInquiryRequestDoc = {
+      type: "inquiry",
+      read: false,
+      createdAt: new Date(),
+      source: "web",
+      data: { ...formData },
+    }
+    await db.collection("requests").insertOne(doc)
+    return { success: true, message: "Your inquiry has been received. Our team will contact you soon." }
   } catch (error) {
-    console.error("Error sending inquiry:", error)
-    return { success: false, message: "Failed to send inquiry. Please try again." }
+    console.error("Error saving product inquiry:", error)
+    return { success: false, message: "Failed to submit. Please try again." }
   }
 }
