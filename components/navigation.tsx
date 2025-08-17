@@ -34,6 +34,9 @@ export function Navigation() {
               <Link href="/livestock" className="text-sm font-medium leading-normal text-foreground hover:text-primary transition-colors">
                 Livestock
               </Link>
+              <Link href="/semen" className="text-sm font-medium leading-normal text-foreground hover:text-primary transition-colors">
+                Semen & Breeding
+              </Link>
               <Link href="/about" className="text-sm font-medium leading-normal text-foreground hover:text-primary transition-colors">
                 About
               </Link>
@@ -64,6 +67,9 @@ export function Navigation() {
                     <Link href="/livestock" className="px-3 py-2 rounded text-foreground hover:bg-muted">Livestock</Link>
                   </SheetClose>
                   <SheetClose asChild>
+                    <Link href="/semen" className="px-3 py-2 rounded text-foreground hover:bg-muted">Semen & Breeding</Link>
+                  </SheetClose>
+                  <SheetClose asChild>
                     <Link href="/about" className="px-3 py-2 rounded text-foreground hover:bg-muted">About</Link>
                   </SheetClose>
                   <SheetClose asChild>
@@ -71,9 +77,7 @@ export function Navigation() {
                   </SheetClose>
                   <div className="pt-2">
                     <SheetClose asChild>
-                      <Button asChild className="w-full">
-                        <Link href="/admin">Admin</Link>
-                      </Button>
+                     
                     </SheetClose>
                   </div>
                 </div>
