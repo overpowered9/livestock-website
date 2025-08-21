@@ -193,12 +193,12 @@ export function LivestockBrowser({ goats, cows, vegetables, honey }: Props) {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search by name, breed, origin..."
-          className="md:max-w-sm"
+          className="w-full md:max-w-sm"
         />
-        <div className="flex gap-2">
+        <div className="w-full md:w-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
           {/* Category dropdown replaces tabs */}
           <Select value={tab} onValueChange={setTab}>
-            <SelectTrigger className="w-[180px]"><SelectValue placeholder="Category" /></SelectTrigger>
+            <SelectTrigger className="min-w-0 w-full md:w-[180px]"><SelectValue placeholder="Category" /></SelectTrigger>
             <SelectContent>
               <SelectItem value="goats">Goats ({tabCounts.goats})</SelectItem>
               <SelectItem value="cows">Cows ({tabCounts.cows})</SelectItem>
@@ -208,7 +208,7 @@ export function LivestockBrowser({ goats, cows, vegetables, honey }: Props) {
           </Select>
 
           <Select value={availability} onValueChange={(v: AvailabilityFilter) => setAvailability(v)}>
-            <SelectTrigger className="w-[150px]"><SelectValue placeholder="Availability" /></SelectTrigger>
+            <SelectTrigger className="min-w-0 w-full md:w-[150px]"><SelectValue placeholder="Availability" /></SelectTrigger>
             <SelectContent>
               <SelectItem value="all">All availability</SelectItem>
               <SelectItem value="available">Available</SelectItem>
@@ -217,7 +217,7 @@ export function LivestockBrowser({ goats, cows, vegetables, honey }: Props) {
             </SelectContent>
           </Select>
           <Select value={sort} onValueChange={(v: SortOption) => setSort(v)}>
-            <SelectTrigger className="w-[180px]"><SelectValue placeholder="Sort by" /></SelectTrigger>
+            <SelectTrigger className="min-w-0 w-full md:w-[180px]"><SelectValue placeholder="Sort by" /></SelectTrigger>
             <SelectContent>
               <SelectItem value="name-asc">Name (A–Z)</SelectItem>
               <SelectItem value="name-desc">Name (Z–A)</SelectItem>
