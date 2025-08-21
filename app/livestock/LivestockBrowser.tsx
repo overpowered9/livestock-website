@@ -6,7 +6,6 @@ import { useRouter, useSearchParams } from "next/navigation"
 import type { Product } from "@/lib/types"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 
@@ -117,42 +116,57 @@ export function LivestockBrowser({ goats, cows, vegetables, honey }: Props) {
     honey: honeyFiltered.length,
   }
 
+  const itemsByTab: Record<string, Product[]> = {
+    goats: goatsFiltered,
+    cows: cowsFiltered,
+    vegetables: vegetablesFiltered,
+    honey: honeyFiltered,
+  }
+  const currentItems = itemsByTab[tab as keyof typeof itemsByTab] ?? goatsFiltered
+
   const renderGrid = (items: Product[]) => (
-    <div className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
       {items.map((product) => (
-        <div key={product.id} className="flex flex-col gap-3 pb-3">
-          <div className="w-full bg-center bg-no-repeat aspect-[4/3] bg-cover rounded-lg relative overflow-hidden">
-            <img
-              src={product.image || "/placeholder.svg"}
-              alt={product.name}
-              className="w-full h-full object-cover"
-            />
-            <Badge
-              className={`absolute top-3 right-3 ${
-                product.availability === "available"
-                  ? "bg-primary"
-                  : product.availability === "seasonal"
-                    ? "bg-accent text-accent-foreground"
-                    : "bg-destructive"
-              }`}
-            >
-              {product.availability}
-            </Badge>
-          </div>
-          <div>
-            {product.breed || product.origin ? (
-              <p className="text-sm text-muted-foreground">
-                {product.breed && product.origin
-                  ? `${product.breed} • ${product.origin}`
-                  : product.breed || `Origin: ${product.origin}`}
-              </p>
-            ) : null}
-            <p className="text-sm text-muted-foreground mt-1 line-clamp-2">{product.description}</p>
-            <div className="flex items-center justify-between mt-2">
-              <span className="text-base font-semibold text-primary">{product.price || "Contact for price"}</span>
-              <Button asChild size="sm" className="min-w-[84px] h-10 px-4">
-                <Link href={`/livestock/${product.id}`}>View Details</Link>
-              </Button>
+        <div key={product.id} className="h-full">
+          {/* Tile/card container with consistent sizing and layout */}
+          <div className="flex h-full flex-col overflow-hidden rounded-lg border bg-card">
+            <div className="relative w-full aspect-square">
+              <img
+                src={product.image || "/placeholder.svg"}
+                alt={product.name}
+                className="w-full h-full object-cover"
+              />
+              <Badge
+                className={`absolute top-3 right-3 ${
+                  product.availability === "available"
+                    ? "bg-primary"
+                    : product.availability === "seasonal"
+                      ? "bg-accent text-accent-foreground"
+                      : "bg-destructive"
+                }`}
+              >
+                {product.availability}
+              </Badge>
+            </div>
+
+            {/* Content area */}
+            <div className="flex flex-1 flex-col p-3">
+              {product.breed || product.origin ? (
+                <p className="text-sm text-muted-foreground">
+                  {product.breed && product.origin
+                    ? `${product.breed} • ${product.origin}`
+                    : product.breed || `Origin: ${product.origin}`}
+                </p>
+              ) : null}
+              <p className="text-sm text-muted-foreground mt-1 line-clamp-2">{product.description}</p>
+
+              {/* Actions pinned to bottom for consistent height */}
+              <div className="mt-auto flex items-center justify-between pt-3">
+                <span className="text-base font-semibold text-primary">{product.price || "Contact for price"}</span>
+                <Button asChild size="sm" className="min-w-[84px] h-10 px-4">
+                  <Link href={`/livestock/${product.id}`}>View Details</Link>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
@@ -173,6 +187,17 @@ export function LivestockBrowser({ goats, cows, vegetables, honey }: Props) {
           className="md:max-w-sm"
         />
         <div className="flex gap-2">
+          {/* Category dropdown replaces tabs */}
+          <Select value={tab} onValueChange={setTab}>
+            <SelectTrigger className="w-[180px]"><SelectValue placeholder="Category" /></SelectTrigger>
+            <SelectContent>
+              <SelectItem value="goats">Goats ({tabCounts.goats})</SelectItem>
+              <SelectItem value="cows">Cows ({tabCounts.cows})</SelectItem>
+              <SelectItem value="vegetables">Vegetables ({tabCounts.vegetables})</SelectItem>
+              <SelectItem value="honey">Honey ({tabCounts.honey})</SelectItem>
+            </SelectContent>
+          </Select>
+
           <Select value={availability} onValueChange={(v: AvailabilityFilter) => setAvailability(v)}>
             <SelectTrigger className="w-[150px]"><SelectValue placeholder="Availability" /></SelectTrigger>
             <SelectContent>
@@ -195,33 +220,8 @@ export function LivestockBrowser({ goats, cows, vegetables, honey }: Props) {
         </div>
       </div>
 
-      <Tabs value={tab} onValueChange={setTab} className="mt-3">
-        <div className="px-4">
-          <TabsList className="grid w-full grid-cols-4">
-            <TabsTrigger value="goats">
-              Goats
-              <Badge variant="secondary" className="ml-2">{tabCounts.goats}</Badge>
-            </TabsTrigger>
-            <TabsTrigger value="cows">
-              Cows
-              <Badge variant="secondary" className="ml-2">{tabCounts.cows}</Badge>
-            </TabsTrigger>
-            <TabsTrigger value="vegetables">
-              Vegetables
-              <Badge variant="secondary" className="ml-2">{tabCounts.vegetables}</Badge>
-            </TabsTrigger>
-            <TabsTrigger value="honey">
-              Honey
-              <Badge variant="secondary" className="ml-2">{tabCounts.honey}</Badge>
-            </TabsTrigger>
-          </TabsList>
-        </div>
-
-        <TabsContent value="goats">{renderGrid(goatsFiltered)}</TabsContent>
-        <TabsContent value="cows">{renderGrid(cowsFiltered)}</TabsContent>
-        <TabsContent value="vegetables">{renderGrid(vegetablesFiltered)}</TabsContent>
-        <TabsContent value="honey">{renderGrid(honeyFiltered)}</TabsContent>
-      </Tabs>
+      {/* Single grid for current category */}
+      <div className="mt-3">{renderGrid(currentItems)}</div>
     </div>
   )
 }
