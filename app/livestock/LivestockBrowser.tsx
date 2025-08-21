@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { SafeImage } from "@/components/ui/safe-image"
 
 type Props = {
   goats: Product[]
@@ -130,12 +131,20 @@ export function LivestockBrowser({ goats, cows, vegetables, honey }: Props) {
         <div key={product.id} className="h-full">
           {/* Tile/card container with consistent sizing and layout */}
           <div className="flex h-full flex-col overflow-hidden rounded-lg border bg-card">
-            <div className="relative w-full aspect-square">
-              <img
-                src={product.image || "/placeholder.svg"}
-                alt={product.name}
-                className="w-full h-full object-cover"
-              />
+            <div className="relative w-full aspect-square bg-muted/30">
+              {/* padded wrapper to avoid cropping/zooming */}
+              <div className="absolute inset-0 p-2">
+                <div className="relative h-full w-full">
+                  <SafeImage
+                    srcPrimary={product.image || "/placeholder.svg"}
+                    srcFallback="/placeholder.svg"
+                    alt={product.name}
+                    fill
+                    className="object-contain"
+                    sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  />
+                </div>
+              </div>
               <Badge
                 className={`absolute top-3 right-3 ${
                   product.availability === "available"

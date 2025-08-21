@@ -15,6 +15,7 @@ import Link from "next/link"
 import { ArrowLeft, Mail, MapPin, Info, DollarSign, Loader2 } from "lucide-react"
 import { useState } from "react"
 import type { Product } from "@/lib/types"
+import { SafeImage } from "@/components/ui/safe-image"
 
 interface ProductPageProps {
   product: Product
@@ -90,11 +91,23 @@ export default function ProductDetailPageClient({ product, related }: ProductPag
           </Button>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        {/* Section 1: Image left, details right (stacks on small screens) */}
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
           {/* Product Image */}
-          <div className="space-y-4">
-            <div className="aspect-square relative overflow-hidden rounded-lg bg-card">
-              <img src={product.image || "/placeholder.svg"} alt={product.name} className="w-full h-full object-cover" />
+          <div>
+            <div className="relative aspect-square overflow-hidden rounded-lg bg-muted/30">
+              <div className="absolute inset-0 p-3">
+                <div className="relative h-full w-full">
+                  <SafeImage
+                    srcPrimary={product.image || "/placeholder.svg"}
+                    srcFallback="/placeholder.svg"
+                    alt={product.name}
+                    fill
+                    className="object-contain"
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                  />
+                </div>
+              </div>
               <Badge
                 className={`absolute top-4 right-4 ${
                   product.availability === "available"
@@ -109,70 +122,61 @@ export default function ProductDetailPageClient({ product, related }: ProductPag
             </div>
           </div>
 
-          {/* Product Information */}
+          {/* Right panel: Name, category, price, origin */}
           <div className="space-y-6">
             <div>
-              <h1 className="text-4xl  font-bold text-foreground mb-2">{product.name}</h1>
-              <div className="flex items-center gap-2 text-muted-foreground mb-4">
-                <Badge variant="secondary" className="capitalize">
-                  {product.type}
-                </Badge>
-                {product.breed && (
-                  <>
-                    <span>•</span>
-                    <span>Breed: {product.breed}</span>
-                  </>
-                )}
+              <h1 className="text-4xl font-bold text-foreground mb-3">{product.name}</h1>
+              <div className="flex flex-wrap items-center gap-2 text-muted-foreground">
+                <Badge variant="secondary" className="capitalize">{product.type}</Badge>
+                {product.breed && <Badge variant="outline" className="capitalize">{product.breed}</Badge>}
               </div>
             </div>
 
-            {/* Description Section */}
             <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">Description</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-lg text-muted-foreground leading-relaxed">{product.description}</p>
-              </CardContent>
-            </Card>
-
-            {/* Product Details */}
-            <div className="grid gap-4">
-              <Card>
-                <CardContent className="flex items-center gap-3 pt-4">
+              <CardContent className="pt-6 space-y-4">
+                <div className="flex items-center gap-3">
                   <DollarSign className="w-5 h-5 text-primary" />
                   <div>
                     <p className="font-semibold text-foreground">Price</p>
                     <p className="text-lg text-primary font-bold">{product.price || "Contact for price"}</p>
                   </div>
-                </CardContent>
-              </Card>
-
-              {product.origin && (
-                <Card>
-                  <CardContent className="flex items-center gap-3 pt-4">
+                </div>
+                {product.origin && (
+                  <div className="flex items-center gap-3">
                     <MapPin className="w-5 h-5 text-primary" />
                     <div>
                       <p className="font-semibold text-foreground">Origin</p>
                       <p className="text-muted-foreground">{product.origin}</p>
                     </div>
-                  </CardContent>
-                </Card>
-              )}
-
-              {product.careInstructions && (
-                <Card>
-                  <CardContent className="flex items-start gap-3 pt-4">
-                    <Info className="w-5 h-5 text-primary mt-0.5" />
-                    <div>
-                      <p className="font-semibold text-foreground mb-2">Care Instructions</p>
-                      <p className="text-muted-foreground leading-relaxed">{product.careInstructions}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              )}
-            </div>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
           </div>
+        </div>
+
+        {/* Section 2: Description then Care Instructions */}
+        <div className="mt-10 space-y-6">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-lg">Description</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-lg text-muted-foreground leading-relaxed">{product.description}</p>
+            </CardContent>
+          </Card>
+
+          {product.careInstructions && (
+            <Card>
+              <CardContent className="flex items-start gap-3 pt-4">
+                <Info className="w-5 h-5 text-primary mt-0.5" />
+                <div>
+                  <p className="font-semibold text-foreground mb-2">Care Instructions</p>
+                  <p className="text-muted-foreground leading-relaxed">{product.careInstructions}</p>
+                </div>
+              </CardContent>
+            </Card>
+          )}
         </div>
 
         {/* Inquiry Form */}
