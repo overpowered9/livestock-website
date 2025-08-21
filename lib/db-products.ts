@@ -1,6 +1,6 @@
-// filepath: /Users/zaid/Downloads/livestock-website/lib/db-products.ts
 import { getDb } from "./mongodb"
 import type { Product } from "./types"
+import { unstable_cache } from "next/cache"
 
 const COLLECTION = "products"
 
@@ -23,19 +23,33 @@ async function getCollection() {
   return col
 }
 
-export async function getAllProducts(): Promise<Product[]> {
+// Non-cached implementations
+async function _getAllProducts(): Promise<Product[]> {
   const col = await getCollection()
   return col.find({}, { projection: { _id: 0 } }).sort({ name: 1 }).toArray()
 }
 
-export async function getProductsByType(type: Product["type"]): Promise<Product[]> {
+async function _getProductsByType(type: Product["type"]): Promise<Product[]> {
   const col = await getCollection()
   return col.find({ type }, { projection: { _id: 0 } }).sort({ name: 1 }).toArray()
 }
 
-export async function getProductById(id: string): Promise<Product | null> {
+async function _getProductById(id: string): Promise<Product | null> {
   const col = await getCollection()
   return col.findOne({ id }, { projection: { _id: 0 } })
+}
+
+// Cached, taggable exports with per-param cache keys
+export async function getAllProducts(): Promise<Product[]> {
+  return unstable_cache(_getAllProducts, ["getAllProducts"], { tags: ["products"] })()
+}
+
+export async function getProductsByType(type: Product["type"]): Promise<Product[]> {
+  return unstable_cache(() => _getProductsByType(type), ["getProductsByType", type], { tags: ["products"] })()
+}
+
+export async function getProductById(id: string): Promise<Product | null> {
+  return unstable_cache(() => _getProductById(id), ["getProductById", id], { tags: ["products"] })()
 }
 
 export function slugify(input: string) {
@@ -76,12 +90,12 @@ export async function updateProduct(id: string, data: Partial<Omit<Product, "id"
     if (typeof v !== "undefined") $set[k] = v
   }
   if (Object.keys($set).length === 0) {
-    const current = await getProductById(id)
+    const current = await _getProductById(id)
     return current // no-op
   }
   const res = await col.updateOne({ id }, { $set })
   if (res.matchedCount === 0) return null
-  return getProductById(id)
+  return _getProductById(id)
 }
 
 export async function deleteProduct(id: string) {
