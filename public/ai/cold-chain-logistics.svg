@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cold-chain logistics illustration">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E0F2FE"/>
+      <stop offset="100%" stop-color="#BAE6FD"/>
+    </linearGradient>
+    <linearGradient id="box" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="snowflake" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#93C5FD"/>
+      <stop offset="100%" stop-color="#60A5FA"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="675" rx="24" fill="url(#bg)"/>
+
+  <!-- Cold storage box -->
+  <g transform="translate(400,300)" filter="url(#shadow)">
+    <rect x="0" y="0" width="400" height="200" rx="16" fill="url(#box)"/>
+    <rect x="40" y="40" width="320" height="120" rx="8" fill="#EFF6FF"/>
+  </g>
+
+  <!-- Snowflake -->
+  <g transform="translate(600,200)">
+    <path d="M0 -40 L20 -20 L40 -40 L20 -60 Z" fill="url(#snowflake)"/>
+    <path d="M-40 0 L-20 20 L-40 40 L-60 20 Z" fill="url(#snowflake)"/>
+    <path d="M0 40 L-20 20 L-40 40 L-20 60 Z" fill="url(#snowflake)"/>
+    <path d="M40 0 L20 -20 L40 -40 L60 -20 Z" fill="url(#snowflake)"/>
+  </g>
+</svg>
