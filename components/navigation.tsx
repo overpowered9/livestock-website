@@ -12,7 +12,7 @@ export function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-3">
         <div className="flex justify-between items-center">
           <Link href="/" className="flex items-center gap-3 sm:gap-4">
-            <Image
+          <Image
               src="/logos/image.png"
               alt="D.A.D Private Limited logo"
               width={32}
@@ -36,6 +36,9 @@ export function Navigation() {
               </Link>
               <Link href="/import-export" className="text-sm font-medium leading-normal text-foreground hover:text-primary transition-colors">
                 Import & Export
+              </Link>
+              <Link href="/hunting" className="text-sm font-medium leading-normal text-foreground hover:text-primary transition-colors">
+                Hunting
               </Link>
               <Link href="/semen" className="text-sm font-medium leading-normal text-foreground hover:text-primary transition-colors">
                 Semen & Breeding
@@ -71,6 +74,9 @@ export function Navigation() {
                   </SheetClose>
                   <SheetClose asChild>
                     <Link href="/import-export" className="px-3 py-2 rounded text-foreground hover:bg-muted">Import & Export</Link>
+                  </SheetClose>
+                  <SheetClose asChild>
+                    <Link href="/hunting" className="px-3 py-2 rounded text-foreground hover:bg-muted">Hunting</Link>
                   </SheetClose>
                   <SheetClose asChild>
                     <Link href="/semen" className="px-3 py-2 rounded text-foreground hover:bg-muted">Semen & Breeding</Link>
