@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
 import { Target, Heart, Globe, Award, TrendingUp, Users } from "lucide-react"
+import { HeroCarousel } from "@/components/home/HeroCarousel"
 
 export default function HomePage() {
   return (
@@ -10,35 +11,7 @@ export default function HomePage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section
-        className="relative min-h-[320px] sm:min-h-[480px] flex items-center justify-center bg-cover bg-center bg-no-repeat rounded-lg mx-3 sm:mx-6 lg:mx-8 my-3 sm:my-6"
-        style={{
-          backgroundImage:
-            `linear-gradient(rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("/boer-goat.png")`,
-        }}
-      >
-        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-          <h1 className="text-3xl md:text-5xl font-black leading-tight tracking-[-0.033em] mb-4 md:mb-6">
-            Premium Livestock Excellence
-          </h1>
-          <p className="text-base md:text-lg mb-6 md:mb-8 leading-normal max-w-2xl mx-auto">
-            Discover our world-class Boer goats and premium livestock, raised with care and expertise to deliver the highest quality for your agricultural success.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-            <Button asChild size="lg" className="min-w-[84px] max-w-[480px] h-12 px-5 bg-primary text-primary-foreground text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90">
-              <Link href="/livestock">Explore Our Livestock</Link>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="min-w-[84px] max-w-[480px] h-12 px-5 bg-white/10 border-white text-white hover:bg-white hover:text-foreground text-base font-bold leading-normal tracking-[0.015em]"
-            >
-              <Link href="/contact">Get In Touch</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
+      <HeroCarousel />
 
       {/* Our Vision Section - Interactive Component */}
       <section className="px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
