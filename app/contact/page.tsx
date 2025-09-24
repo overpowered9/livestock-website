@@ -112,7 +112,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-base font-medium leading-normal text-foreground mb-1">Email Address</h3>
-                    <p className="text-sm font-normal leading-normal text-muted-foreground">dadprivatelimited@gmail.com</p>
+                    <p className="text-sm font-normal leading-normal text-muted-foreground">d.a.dprivatelimited786@gmail.com</p>
                     <p className="text-sm font-normal leading-normal text-muted-foreground mt-1">We respond within 24 hours</p>
                   </div>
                 </CardContent>

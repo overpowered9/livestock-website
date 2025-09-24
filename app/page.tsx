@@ -254,7 +254,7 @@ export default function HomePage() {
                 </div>
                 <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
                   <div className="bg-primary text-white text-xs px-2 py-1 rounded-full whitespace-nowrap">
-                    Global Investment
+                    Danish Awais Danish
                   </div>
                 </div>
               </div>
@@ -556,7 +556,7 @@ export default function HomePage() {
 
             <div>
               <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
-              <p className="text-gray-300">Email: info@dadprivatelimited.com</p>
+              <p className="text-gray-300">Email: d.a.dprivatelimited786@gmail.com</p>
               <p className="text-gray-300 mt-2">Pakistan</p>
             </div>
           </div>
