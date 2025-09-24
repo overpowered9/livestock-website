@@ -40,7 +40,7 @@ export default function AboutPage() {
                   country.
                 </p>
                 <p className="text-base font-normal">
-                  Through strategic partnerships with GIC and Awais Livestock, we continue to promote and preserve
+                  Through strategic partnerships with GIC and Awais Danish Livestock, we continue to promote and preserve
                   livestock quality while supporting sustainable agricultural practices that benefit both our customers
                   and the environment.
                 </p>

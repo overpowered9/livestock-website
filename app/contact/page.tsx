@@ -112,7 +112,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-base font-medium leading-normal text-foreground mb-1">Email Address</h3>
-                    <p className="text-sm font-normal leading-normal text-muted-foreground">info@dadprivatelimited.com</p>
+                    <p className="text-sm font-normal leading-normal text-muted-foreground">dadprivatelimited@gmail.com</p>
                     <p className="text-sm font-normal leading-normal text-muted-foreground mt-1">We respond within 24 hours</p>
                   </div>
                 </CardContent>
@@ -125,7 +125,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="text-base font-medium leading-normal text-foreground mb-1">Phone Number</h3>
-                    <p className="text-sm font-normal leading-normal text-muted-foreground">+92 300 1234567</p>
+                    <p className="text-sm font-normal leading-normal text-muted-foreground">+92 309 7999999</p>
                     <p className="text-sm font-normal leading-normal text-muted-foreground mt-1">Available 9 AM - 6 PM (PKT)</p>
                   </div>
                 </CardContent>
@@ -139,9 +139,9 @@ export default function ContactPage() {
                   <div>
                     <h3 className="text-base font-medium leading-normal text-foreground mb-1">Office Address</h3>
                     <p className="text-sm font-normal leading-normal text-muted-foreground">
-                      Main Boulevard
+                      Bahadur Pur
                       <br />
-                      Lahore, Punjab, Pakistan
+                      Multan, Punjab, Pakistan
                     </p>
                   </div>
                 </CardContent>
@@ -258,6 +258,10 @@ export default function ContactPage() {
                           <SelectItem value="consultation">Expert Consultation</SelectItem>
                           <SelectItem value="general">General Inquiry</SelectItem>
                           <SelectItem value="support">Customer Support</SelectItem>
+                          <SelectItem value="Job">Job</SelectItem>
+                          <SelectItem value="hunting">Hunting</SelectItem>
+                          <SelectItem value="semen&breeding">Semen & Breeding</SelectItem>
+                          <SelectItem value="import-export">Import & Export</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
