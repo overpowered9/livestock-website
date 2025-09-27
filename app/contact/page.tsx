@@ -252,6 +252,7 @@ export default function ContactPage() {
                           <SelectValue placeholder="Select inquiry type" />
                         </SelectTrigger>
                         <SelectContent>
+                          <SelectItem value="Registration">Registration</SelectItem>
                           <SelectItem value="livestock">Livestock Purchase</SelectItem>
                           <SelectItem value="agricultural">Agricultural Products</SelectItem>
                           <SelectItem value="partnership">Partnership Opportunity</SelectItem>
